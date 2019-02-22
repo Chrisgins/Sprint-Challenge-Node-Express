@@ -119,4 +119,6 @@ actionDB.remove(id)
     });
 });
 
+// Don't forget to export modules!
+
 module.exports = router;
