@@ -1,8 +1,12 @@
+// Import modules
+
 const express = require('express');
 const router = express.Router();
 
 const action = require('../data/helpers/actionModel');
 const project = require('../data/helpers/projectModel');
+
+// GET routes
 
 router.get('/', (req,res) => {
     action.get()
@@ -13,6 +17,8 @@ router.get('/', (req,res) => {
          res.status(500).json({error: "The action you requested can not execute: error 500"})
      });
 });
+
+// GET by id route
 
 router.get('/:id', (req,res) => {
     const {id} = req.params;
@@ -26,6 +32,8 @@ router.get('/:id', (req,res) => {
            res.status(500).json({error: "The action you requested can not execute: error 500"})
        });
 });
+
+// POST route
 
 router.post('/:id', (req,res) =>{
     const {id} = req.params;
@@ -59,6 +67,8 @@ router.post('/:id', (req,res) =>{
              });
        }
 });
+
+// PUT route
 
    router.put('/:id', (req,res) =>{
        const {id} = req.params;
@@ -95,6 +105,7 @@ router.post('/:id', (req,res) =>{
    }
 });     
         
+// DESTROY route 
 
 router.delete('/:id', (req, res) => {
 const { id } = req.params;

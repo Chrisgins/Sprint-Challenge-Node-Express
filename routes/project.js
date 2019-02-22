@@ -1,11 +1,11 @@
-//import modules
+// Import modules
+
 const express = require('express');
 const router = express.Router();
 
 const project = require('../data/helpers/projectModel');
 
-
-//GET route
+// GET routes
 
 router.get('/', (req, res) => {
     project.get()
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         });
 });
 
-//GET by id route
+// GET by id route
 
 router.get('/:id', (req, res) => {
     const { id } = req.params;
@@ -32,6 +32,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST route
+
 router.post('/', (req, res) => {
     const newProject = req.body;
 
@@ -52,7 +53,8 @@ router.post('/', (req, res) => {
     }
 });
 
-// POST by id route
+// PUT route
+
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const newProject = req.body;
@@ -85,8 +87,7 @@ router.put('/:id', (req, res) => {
     }
 });
 
-
-// DELETE route
+// DESTROY route
 
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
@@ -100,8 +101,5 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-
-
-// Don't forget router module export
 
 module.exports = router;
