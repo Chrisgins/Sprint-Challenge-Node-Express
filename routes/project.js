@@ -1,7 +1,11 @@
+//import modules
 const express = require('express');
 const router = express.Router();
 
 const project = require('../data/helpers/projectModel');
+
+
+//GET route
 
 router.get('/', (req, res) => {
     project.get()
@@ -12,6 +16,8 @@ router.get('/', (req, res) => {
             res.status(500).json({error: "An error occured while retrieving project: error 500"});
         });
 });
+
+//GET by id route
 
 router.get('/:id', (req, res) => {
     const { id } = req.params;
@@ -25,6 +31,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// POST route
 router.post('/', (req, res) => {
     const newProject = req.body;
 
@@ -45,6 +52,7 @@ router.post('/', (req, res) => {
     }
 });
 
+// POST by id route
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const newProject = req.body;
@@ -77,6 +85,9 @@ router.put('/:id', (req, res) => {
     }
 });
 
+
+// DELETE route
+
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
 
@@ -89,5 +100,8 @@ router.delete('/:id', (req, res) => {
         });
 });
 
+
+
+// Don't forget router module export
 
 module.exports = router;
